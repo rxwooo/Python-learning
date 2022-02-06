@@ -1,7 +1,8 @@
-from email.mime import base
+import imp
 import os
-from flask import Flask, redirect, render_template, send_from_directory, url_for, jsonify
+from flask import Flask, session, render_template, send_from_directory, url_for, jsonify, g
 from flask import request
+import uuid
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
@@ -21,11 +22,13 @@ def upImg():
     if request.method == 'POST':
         f = request.files['image']
         basepath = os.path.dirname(__file__)
-        upload_path = os.path.join(basepath, "test.jpg")
-        f.save(upload_path)
-    return os.path.join('/', "test.jpg")
+        uuid_str = uuid.uuid4().hex
+        new_name = uuid_str + '.jpg'
+        session["new_name"] = os.path.join("./"+url_for('static', filename='images/temp'), new_name)
+        f.save(session["new_name"])
+    return os.path.join('/', "test_new.jpg")
 
 @app.route("/imgDownload", methods=["GET","POST"])
-def imgBack():
-    basepath = os.path.dirname(__file__)
-    return os.path.join('/', "test.jpg")
+def imgDownload():
+    str = session.get('new_name')
+    return str
