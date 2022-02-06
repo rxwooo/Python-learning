@@ -24,7 +24,7 @@ def upImg():
         basepath = os.path.dirname(__file__)
         uuid_str = uuid.uuid4().hex
         new_name = uuid_str + '.jpg'
-        session["new_name"] = os.path.join("./"+url_for('static', filename='images/temp'), new_name)
+        session["new_name"] = os.path.join("."+url_for('static', filename='images/temp'), new_name)
         f.save(session["new_name"])
     return os.path.join('/', "test_new.jpg")
 
