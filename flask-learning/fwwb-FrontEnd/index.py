@@ -1,6 +1,5 @@
-import imp
 import os
-from flask import Flask, session, render_template, send_from_directory, url_for, jsonify, g
+from flask import Flask, session, render_template, send_from_directory, url_for
 from flask import request
 import uuid
 
@@ -24,8 +23,8 @@ def upImg():
         basepath = os.path.dirname(__file__)
         uuid_str = uuid.uuid4().hex
         new_name = uuid_str + '.jpg'
-        session["new_name"] = os.path.join("."+url_for('static', filename='images/temp'), new_name)
-        f.save(session["new_name"])
+        session["new_name"] = os.path.join(url_for('static', filename='images/temp'), new_name)
+        f.save(basepath+session["new_name"])
     return os.path.join('/', "test_new.jpg")
 
 @app.route("/imgDownload", methods=["GET","POST"])

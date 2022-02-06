@@ -62,9 +62,9 @@
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == (200 || 304)) {
                     imgDown = document.getElementById("download-image");
+                    imgDown.src = xmlhttp.responseText;
                     imgDown.style.width = document.getElementById("upload-image").style.width;
                     imgDown.style.height = document.getElementById("upload-image").style.height;
-                    imgDown.src = xmlhttp.responseText;
                 }
             }
             xmlhttp.open("GET", "/imgDownload", true);
