@@ -377,6 +377,7 @@
                 document.getElementById('upload-image').src = fr.result;
             };
             fr.readAsDataURL(imgFile);
+            imgDown(obj);
             document.getElementById("download-image").src = "default_processed.png";
         }
 
