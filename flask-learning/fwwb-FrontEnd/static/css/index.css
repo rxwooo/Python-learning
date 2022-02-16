@@ -12,6 +12,7 @@
     margin: 15px 15px 0;
     border-radius: 10px;
     border: 1px solid #0F2857;
+    overflow: hidden;
 }
 
 .button-a {
@@ -31,12 +32,12 @@
     align-items: center;
 }
 
-.upload-button {
-    width: calc(50% - 15px * 2);
-}
-
 .upbutton-container {
     margin: 0 15px;
+}
+
+.upload-button {
+    width: calc(50% - 15px * 2);
 }
 
 .a-input {

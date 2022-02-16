@@ -47,7 +47,7 @@
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!--//my-Style-->
 
-    <!--image-download-->
+    <!--my-Script-->
     <script>
         function postDownloadImage() {
             var xmlhttp;
@@ -98,7 +98,7 @@
             }
         }
     </script>
-    <!--//image-download-->
+    <!--//my-Script-->
 </head>
 
 <body>
@@ -184,9 +184,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- img-select -->
-                    <div class="outer-w3-agile col-xl-6 display-block picture-block" style="height: 500px;">
+                    <div class="outer-w3-agile col-xl display-block picture-block" style="height: 400px;">
                         <div class="picture-container">
-                            <img src="test.jpg" id="upload-image" class="adaptiveImg">
+                            <img src="test.jpg" id="upload-image" class="row-xl-9 adaptiveImg">
                         </div>
                         <div class="upbutton-container row">
                             <a href="#" class="button-a picture-block-button"><span>选择文件</span>
@@ -199,15 +199,14 @@
                         </div>
                     </div>
                     <!--// img-select -->
-                    <!-- img-back -->
-                    <div class="outer-w3-agile col-xl-6 display-block picture-block" style="height: 500px;">
-                        <!-- <img src="Clannad-bg.jpg" id="receive-image"> -->
+                    <!-- img-download -->
+                    <div class="outer-w3-agile col-xl ml-xl-3 mt-xl-0 mt-3 display-block picture-block" style="height: 400px;">
                         <div class="picture-container">
                             <img src="default_processed.png" id="download-image" class="adaptiveImg">
                         </div>
                         <button class="picture-block-button" onclick="postDownloadImage()" type="button">获取检测结果</button>
                     </div>
-                    <!--// img-back -->
+                    <!--// img-download -->
                 </div>
             </div>
             <!-- Result-Table -->
